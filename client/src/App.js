@@ -1,31 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import socketIOClient from 'socket.io-client';
+import React from 'react';
+import './config/ReactotronConfig';
+import GlobalStyle from './styles/global';
+
+import Chat from './components/Chat';
+import Header from './components/Header';
+import Center from './components/Center';
+import Online from './components/Online';
+import Teste from './components/Teste';
 
 export default function App() {
-  const [response, setResponse] = useState(false);
-  const [endpoint, setEndpoint] = useState('http://127.0.0.1:4001');
-
-  useEffect(() => {
-    const socket = socketIOClient(endpoint);
-    socket.on('FromAPI', data => setResponse(data));
-  }, []);
-
-  function handleSubmit(event) {
-    // socket.emit('sendMessage');
-  }
-
   return (
-    <div style={{ textAlign: 'center' }}>
-      <form>
-        <input name="name" />
-        <div />
-        <input name="message" />
-        <button type="submit" onSubmit={handleSubmit}>
-          Send
-        </button>
-      </form>
-
-      {response}
-    </div>
+    <>
+      <Header />
+      <Teste />
+      <GlobalStyle />
+      {/* <Online /> */}
+      {/* <Center /> */}
+      {/* <div style=["height: 500px; width: 500px; background: #000"] /> */}
+      {/* <Chat /> */}
+    </>
   );
 }

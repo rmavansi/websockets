@@ -12,31 +12,21 @@ app.use(index);
 const server = http.createServer(app);
 const io = socketIo(server);
 
-const getApiAndEmit = async socket => {
-  try {
-    const res = 'test';
-
-    socket.emit('FromAPI', res);
-  } catch (error) {
-    console.error(`Error: ${error.code}`);
-  }
-};
-
 server.listen(port, () => console.log(`Listening on port ${port}`));
 
-let interval;
+const chat = [];
 
 io.on('connection', socket => {
   console.log(`New client connected: ${socket.id}`);
-  if (interval) {
-    clearInterval(interval);
-  }
-  interval = setInterval(() => getApiAndEmit(socket), 3000);
+
   socket.on('disconnect', () => {
     console.log(`Client disconnected: ${socket.id}`);
   });
 
   socket.on('sendMessage', data => {
-    console.log(data);
+    chat.push(`${data}\n`);
+    // console.log(data);
+    socket.broadcast.emit('returnMessage', chat);
+    socket.emit('returnMessage', chat);
   });
 });
