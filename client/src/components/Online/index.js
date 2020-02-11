@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdNavigateBefore } from 'react-icons/md';
 
 import {
   Container,
@@ -12,6 +13,8 @@ import {
   Recommended,
   Search,
   OnlineFlag,
+  GameName,
+  ShowMore,
   Texto,
 } from './styles';
 
@@ -20,32 +23,16 @@ export default function Online() {
     <Container>
       <Followed>
         <FollowedHeader>
-          <strong>Followed Channels</strong>
-          <strong>Icon</strong>
+          <strong>FOLLOWED CHANNELS</strong>
+          <MdNavigateBefore size={20} />
         </FollowedHeader>
+
         <Block>
           <ImageNameGameDiv>
             <Image />
             <NameGameDiv>
               <Texto>Recow</Texto>
-              <Texto>Teamfight Tactics</Texto>
-            </NameGameDiv>
-          </ImageNameGameDiv>
-          <OnlineStats>
-            <OnlineFlag />
-            <span>1.4k</span>
-          </OnlineStats>
-        </Block>
-        <strong>Show More</strong>
-      </Followed>
-      <Recommended>
-        <strong>Recommended Channels</strong>
-        <Block>
-          <ImageNameGameDiv>
-            <Image />
-            <NameGameDiv>
-              <Texto>Recow</Texto>
-              <Texto>Teamfight Tactics</Texto>
+              <GameName>Teamfight Tactics</GameName>
             </NameGameDiv>
           </ImageNameGameDiv>
           <OnlineStats>
@@ -54,7 +41,38 @@ export default function Online() {
           </OnlineStats>
         </Block>
 
-        <strong>Show More</strong>
+        <Block>
+          <ImageNameGameDiv>
+            <Image />
+            <NameGameDiv>
+              <Texto>Recow</Texto>
+              <GameName>Teamfight Tactics</GameName>
+            </NameGameDiv>
+          </ImageNameGameDiv>
+          <OnlineStats>
+            <OnlineFlag />
+            <span>1.4k</span>
+          </OnlineStats>
+        </Block>
+
+        <ShowMore>Show More</ShowMore>
+      </Followed>
+      <Recommended>
+        <strong>RECOMMENDED CHANNELS</strong>
+        <Block>
+          <ImageNameGameDiv>
+            <Image />
+            <NameGameDiv>
+              <Texto>Recow</Texto>
+              <GameName>Teamfight Tactics</GameName>
+            </NameGameDiv>
+          </ImageNameGameDiv>
+          <OnlineStats>
+            <OnlineFlag />
+            <span>1.4k</span>
+          </OnlineStats>
+        </Block>
+        <ShowMore>Show More</ShowMore>
       </Recommended>
       <Search />
     </Container>

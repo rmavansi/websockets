@@ -8,6 +8,10 @@ export const Container = styled.div`
   justify-content: space-between;
   background: #222;
   color: #fff;
+
+  img {
+    border-radius: 4px;
+  }
 `;
 
 export const Tab = styled.div`
@@ -18,7 +22,6 @@ export const Tab = styled.div`
     align-items: center;
     justify-content: center;
     list-style-type: none;
-    background: #2a0;
   }
   li {
     padding: 0 20px;
