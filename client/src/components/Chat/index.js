@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import socketIOClient from 'socket.io-client';
-import { MdArrowForward } from 'react-icons/md';
+import { MdKeyboardArrowRight, MdPersonOutline } from 'react-icons/md';
 
 import Input from '../Input';
 
@@ -36,18 +36,18 @@ export default function Chat() {
   return (
     <Container>
       <ChatHeader>
-        <div>{MdArrowForward}</div>
+        <MdKeyboardArrowRight size={20} />
         <div>STREAM CHAT</div>
-        <div> Icon</div>
+        <MdPersonOutline size={20} />
       </ChatHeader>
       <ChatDiv>{chat}</ChatDiv>
       <form onSubmit={handleSubmit}>
         <ChatInput>
-          {/* <input autoComplete="off" name="name" placeholder="Type your name" /> */}
-          <Input placeHolder="Send a message" />
+          <input autoComplete="off" name="name" placeholder="Send a message" />
+          {/* <Input placeHolder="Send a message" /> */}
         </ChatInput>
         <ChatFooter>
-          <div> Icons</div>
+          <div />
           <button type="button">Chat</button>
         </ChatFooter>
       </form>
