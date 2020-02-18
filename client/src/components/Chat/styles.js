@@ -18,6 +18,8 @@ export const ChatHeader = styled.div`
 
 export const ChatDiv = styled.div`
   height: 780px;
+  padding: 10px 20px;
+  line-height: 35px;
 `;
 
 export const ChatInput = styled.div`

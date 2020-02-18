@@ -22,10 +22,10 @@ export default function Chat() {
   useEffect(() => {
     socket.on('FromAPI', data => setResponse(data));
     socket.on('returnMessage', data =>
-      setChat(data.map(mes => `${mes.id}: ${mes.message}`))
+      setChat(data.map(mes => ` ${mes.id}: ${mes.message}\n `))
     );
     socket.on('oldMessages', data =>
-      setChat(data.map(mes => `${mes.id}: ${mes.message}\n`))
+      setChat(data.map(mes => ` ${mes.id}: ${mes.message} `))
     );
   }, []);
 
@@ -59,7 +59,7 @@ export default function Chat() {
         </ChatInput>
         <ChatFooter>
           <div />
-          <button type="button" onSubmit={handleSubmit}>
+          <button type="submit" onSubmit={handleSubmit}>
             Chat
           </button>
         </ChatFooter>
