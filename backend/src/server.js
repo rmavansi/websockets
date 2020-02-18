@@ -19,13 +19,14 @@ const chat = [];
 io.on('connection', socket => {
   console.log(`New client connected: ${socket.id}`);
 
+  socket.emit('oldMessages', chat);
+
   socket.on('disconnect', () => {
     console.log(`Client disconnected: ${socket.id}`);
   });
 
   socket.on('sendMessage', data => {
-    chat.push(`${data}\n`);
-    // console.log(data);
+    chat.push({ id: socket.id, message: data });
     socket.broadcast.emit('returnMessage', chat);
     socket.emit('returnMessage', chat);
   });

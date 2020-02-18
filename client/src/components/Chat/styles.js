@@ -33,6 +33,7 @@ export const ChatInput = styled.div`
     border-radius: 6px;
     background: #444;
     padding-left: 15px;
+    color: #fff;
 
     ::placeholder {
       color: #ccc;
