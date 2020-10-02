@@ -7,16 +7,27 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   background: #18181b;
-  color: #fff;
+  color: #e1e1e1;
 
   img {
     border-radius: 4px;
   }
+
+  svg {
+    margin-left: 12px;
+    padding: 5px;
+    :hover {
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+  }
 `;
 
-export const Tab = styled.div`
+export const NavBar = styled.div`
   display: flex;
   align-items: center;
+
   ul {
     display: flex;
     align-items: center;
@@ -27,43 +38,107 @@ export const Tab = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 20px;
-    font-size: 20px;
+    padding: 0 18px;
+    font-size: 18px;
+
+    :hover {
+      :not(:last-child) {
+        color: #9254ed;
+        cursor: pointer;
+      }
+    }
+
+    svg {
+      margin-left: 0;
+    }
+  }
+
+  @media only screen and (max-width: 1440px) {
+    li {
+      font-size: 14px;
+      padding: 0 10px;
+    }
   }
 `;
 
 export const Search = styled.div`
-  margin-left: 100px;
   display: flex;
+  width: 381px;
 
   input {
     height: 36px;
-    width: 300px;
   }
 
   button {
     height: 36px;
-    width: 35px;
-    border-radius: 6px;
+    width: 34px;
+    border-radius: 0 6px 6px 0;
+    margin-left: 1px;
     border: none;
-    background: #333;
+    background-color: #3e3e3e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    :hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    svg {
+      color: #d2d2d2;
+      margin-left: 0;
+      padding: 0;
+      :hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 770px) {
+    input,
+    button {
+      display: none;
+    }
   }
 `;
 
 export const Perfil = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 250px;
-  margin-right: 15px;
+  margin: 0 10px;
 
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 12px;
     height: 30px;
     width: 96px;
     background: #444;
     border: none;
     border-radius: 4px;
     color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+
+    :hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    svg {
+      margin: 0 6px 0 0;
+      padding: 0;
+      :hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    button {
+      display: none;
+    }
   }
 `;
 
@@ -72,4 +147,21 @@ export const Image = styled.div`
   width: 30px;
   background: #772ce8;
   border-radius: 50%;
+  margin-left: 8px;
+`;
+
+export const SearchMedia = styled.div`
+  display: none;
+
+  @media only screen and (max-width: 770px) {
+    display: flex;
+  }
+`;
+
+export const BitsMedia = styled.div`
+  display: none;
+
+  @media only screen and (max-width: 1200px) {
+    display: flex;
+  }
 `;

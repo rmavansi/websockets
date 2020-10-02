@@ -1,34 +1,62 @@
 import React from 'react';
-import { MdMyLocation, MdAddAlert, MdChatBubbleOutline } from 'react-icons/md';
+import { BsChatSquare } from 'react-icons/bs';
+import { FiMoreHorizontal, FiInbox } from 'react-icons/fi';
+import { CgCrown } from 'react-icons/cg';
+import { MdSearch } from 'react-icons/md';
+import { GiDiamonds } from 'react-icons/gi';
 import Input from '../Input';
-import TwIcon from '../../assets/tw.png';
+import TwitchLogo from '../../assets/TwitchLogo.png';
 
-import { Container, Tab, Search, Perfil, Image } from './styles';
+import {
+  Container,
+  NavBar,
+  Search,
+  Perfil,
+  Image,
+  SearchMedia,
+  BitsMedia,
+} from './styles';
 
 export default function Header() {
   return (
     <Container>
-      <Tab>
+      <NavBar>
         <ul>
           <li>
-            <img alt="TwitchIcon" src={TwIcon} width={25} />
+            <img alt="TwitchIcon" src={TwitchLogo} width={25} />
           </li>
-          <li>Discover</li>
           <li>Following</li>
           <li>Browse</li>
-          <li>TryPrime</li>
-          <li>...</li>
+          <li>Esports</li>
+          <li>Music</li>
+          <li>
+            <FiMoreHorizontal size={30} />
+          </li>
         </ul>
-        <Search>
-          <Input placeHolder="Search" />
-          <button type="submit">Send</button>
-        </Search>
-      </Tab>
+      </NavBar>
+
+      <Search>
+        <Input placeHolder="Search" />
+        <button type="submit">
+          <MdSearch size={26} />
+        </button>
+      </Search>
+      <div />
+
       <Perfil>
-        <MdMyLocation size={20} />
-        <MdAddAlert size={20} />
-        <MdChatBubbleOutline size={20} />
-        <button type="button">Get Bits</button>
+        <SearchMedia>
+          <MdSearch size={30} />
+        </SearchMedia>
+        <CgCrown size={30} />
+        <FiInbox size={30} />
+        <BsChatSquare size={30} />
+        <button type="button">
+          <GiDiamonds size={20} />
+          Get Bits
+        </button>
+        <BitsMedia>
+          <GiDiamonds size={30} />
+        </BitsMedia>
         <Image />
       </Perfil>
     </Container>

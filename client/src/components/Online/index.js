@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MdNavigateBefore, MdNavigateNext, MdSearch } from 'react-icons/md';
 import { FiHeart, FiKey, FiUserPlus } from 'react-icons/fi';
+// import ClickableIcon from '../ClickableIcon';
 
 import {
   Container,
@@ -9,11 +10,11 @@ import {
   ImageNameGameDiv,
   NameGameDiv,
   Image,
+  ClickableIcon,
   OnlineStats,
   Search,
   OnlineFlag,
   ShowMore,
-  ClickableIcon,
   Footer,
   FollowedIcon,
   RecommendedIcon,
