@@ -8,10 +8,24 @@ export const Container = styled.div`
   min-width: 240px;
   color: #ddd;
 
-  @media only screen and (max-width: 1200px) {
-    min-width: 50px;
-    max-width: 50px;
+  img {
+    border-radius: 50%;
   }
+
+  ${props =>
+    props.isClosed &&
+    css`
+      min-width: 50px;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 0;
+      }
+      img {
+        height: 30px;
+      }
+    `}
 `;
 
 export const FollowedChannelsBlockHeader = styled.div`
@@ -19,12 +33,6 @@ export const FollowedChannelsBlockHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 12px;
-
-  strong {
-    @media only screen and (max-width: 1200px) {
-      display: none;
-    }
-  }
 `;
 
 export const Channel = styled.div`
@@ -37,6 +45,14 @@ export const Channel = styled.div`
     background-color: rgb(200, 200, 200, 0.1);
     cursor: pointer;
   }
+
+  ${props =>
+    props.isClosed &&
+    css`
+      :hover {
+        background-color: #1d1d1d;
+      }
+    `}
 `;
 
 export const ImageNameGameDiv = styled.div`
@@ -56,9 +72,6 @@ export const NameGameDiv = styled.div`
   span {
     font-size: 12px;
     color: #999;
-  }
-  @media only screen and (max-width: 1200px) {
-    display: none;
   }
 `;
 
@@ -82,21 +95,17 @@ export const OnlineStats = styled.div`
   span {
     margin-left: 5px;
   }
-  @media only screen and (max-width: 1200px) {
-    display: none;
-  }
 `;
 
 export const ShowMore = styled.div`
   font-size: 11px;
   margin: 8px 0 12px 12px;
   color: #874df4;
-  :hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  @media only screen and (max-width: 1200px) {
-    display: none;
+  span {
+    :hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 `;
 
@@ -135,9 +144,6 @@ export const Search = styled.div`
   svg {
     margin-left: 4px;
   }
-  @media only screen and (max-width: 1200px) {
-    display: none;
-  }
 `;
 
 export const ClickableIcon = styled.div`
@@ -149,4 +155,21 @@ export const ClickableIcon = styled.div`
     background-color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
   }
+  ${props =>
+    props.isClosed &&
+    css`
+      margin: 8px 12px;
+    `}
+`;
+
+export const FollowedIcon = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+`;
+
+export const RecommendedIcon = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
 `;

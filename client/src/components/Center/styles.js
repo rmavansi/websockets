@@ -4,20 +4,10 @@ export const Container = styled.div`
   display: flex;
   width: 100%;
   background: #444;
-  /* height: 100vh; */
-  /* height: 100px; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: right;
-  justify-content: ; */
-  background: green;
-  /* height: 100%; */
-  /* width: 68%; */
+  background: grey;
 `;
 
 export const Stream = styled.div`
-  /* background: red;
-  width: 68%; */
   background: #444;
 `;
 

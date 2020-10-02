@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 const ChatContext = createContext();
 
 export default function ChatProvider({ children }) {
-  const [isChatClosed, setIsChatClosed] = useState(true);
+  const [isChatClosed, setIsChatClosed] = useState(false);
 
   return (
     <ChatContext.Provider value={{ isChatClosed, setIsChatClosed }}>
