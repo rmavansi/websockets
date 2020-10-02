@@ -1,80 +1,100 @@
-import React from 'react';
-import { MdNavigateBefore } from 'react-icons/md';
+import React, { useState } from 'react';
+import { MdNavigateBefore, MdNavigateNext, MdSearch } from 'react-icons/md';
 
 import {
   Container,
-  Followed,
-  FollowedHeader,
-  Block,
+  FollowedChannelsBlockHeader,
+  Channel,
   ImageNameGameDiv,
   NameGameDiv,
   Image,
   OnlineStats,
-  Recommended,
   Search,
   OnlineFlag,
-  GameName,
   ShowMore,
-  Texto,
+  ClickableIcon,
+  Footer,
 } from './styles';
 
 export default function Online() {
+  const [isFocused, setIsFocused] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
+
+  function handleOnlineClick() {
+    setIsClosed(!isClosed);
+  }
+
   return (
     <Container>
-      <Followed>
-        <FollowedHeader>
+      <div>
+        <FollowedChannelsBlockHeader>
           <strong>FOLLOWED CHANNELS</strong>
-          <MdNavigateBefore size={20} />
-        </FollowedHeader>
+          <ClickableIcon onClick={handleOnlineClick}>
+            {isClosed ? (
+              <MdNavigateBefore size={20} />
+            ) : (
+              <MdNavigateNext size={20} />
+            )}
+          </ClickableIcon>
+        </FollowedChannelsBlockHeader>
 
-        <Block>
+        <Channel>
           <ImageNameGameDiv>
             <Image />
             <NameGameDiv>
-              <Texto>Recow</Texto>
-              <GameName>Teamfight Tactics</GameName>
+              <p>Recow</p>
+              <span>Teamfight Tactics</span>
             </NameGameDiv>
           </ImageNameGameDiv>
           <OnlineStats>
             <OnlineFlag />
-            <span>1.4k</span>
+            <span>1.4K</span>
           </OnlineStats>
-        </Block>
+        </Channel>
 
-        <Block>
+        <Channel>
           <ImageNameGameDiv>
             <Image />
             <NameGameDiv>
-              <Texto>Recow</Texto>
-              <GameName>Teamfight Tactics</GameName>
+              <p>Recow</p>
+              <span>Teamfight Tactics</span>
             </NameGameDiv>
           </ImageNameGameDiv>
           <OnlineStats>
             <OnlineFlag />
-            <span>1.4k</span>
+            <span>1.4K</span>
           </OnlineStats>
-        </Block>
+        </Channel>
 
         <ShowMore>Show More</ShowMore>
-      </Followed>
-      <Recommended>
-        <strong>RECOMMENDED CHANNELS</strong>
-        <Block>
+        <FollowedChannelsBlockHeader>
+          <strong>RECOMMENDED CHANNELS</strong>
+        </FollowedChannelsBlockHeader>
+        <Channel>
           <ImageNameGameDiv>
             <Image />
             <NameGameDiv>
-              <Texto>Recow</Texto>
-              <GameName>Teamfight Tactics</GameName>
+              <p>Recow</p>
+              <span>Teamfight Tactics</span>
             </NameGameDiv>
           </ImageNameGameDiv>
           <OnlineStats>
             <OnlineFlag />
-            <span>1.4k</span>
+            <span>1.4K</span>
           </OnlineStats>
-        </Block>
+        </Channel>
         <ShowMore>Show More</ShowMore>
-      </Recommended>
-      <Search />
+      </div>
+      <Footer>
+        <Search isFocused={isFocused}>
+          <MdSearch size={24} />
+          <input
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            placeholder="Search to Add Friends"
+          />
+        </Search>
+      </Footer>
     </Container>
   );
 }

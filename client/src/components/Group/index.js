@@ -2,16 +2,19 @@ import React from 'react';
 
 import { Container } from './styles';
 
+import ChatProvider from '../../context/chat';
 import Chat from '../Chat';
 import Center from '../Center';
 import Online from '../Online';
 
-export default function Teste() {
+export default function Group() {
   return (
     <Container>
       <Online />
-      <Center />
-      <Chat />
+      <ChatProvider>
+        <Center />
+        <Chat />
+      </ChatProvider>
     </Container>
   );
 }

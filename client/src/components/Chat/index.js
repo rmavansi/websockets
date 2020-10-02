@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import socketIOClient from 'socket.io-client';
-import { MdKeyboardArrowRight, MdPersonOutline } from 'react-icons/md';
+import {
+  MdKeyboardArrowRight,
+  MdPersonOutline,
+  MdTimelapse,
+  MdTagFaces,
+} from 'react-icons/md';
+
+import { useChat } from '../../context/chat';
 
 import Input from '../Input';
 
@@ -10,6 +17,8 @@ import {
   ChatDiv,
   ChatInput,
   ChatFooter,
+  ClickableIcon,
+  ChatForm,
 } from './styles';
 
 export default function Chat() {
@@ -18,6 +27,8 @@ export default function Chat() {
   const [chat, setChat] = useState('');
   const [endpoint, setEndpoint] = useState('http://127.0.0.1:4001');
   const [socket, setSocket] = useState(socketIOClient(endpoint));
+  const [isFocused, setIsFocused] = useState(false);
+  const { isChatClosed, setIsChatClosed } = useChat();
 
   useEffect(() => {
     socket.on('FromAPI', data => setResponse(data));
@@ -39,31 +50,49 @@ export default function Chat() {
     setMessage(e.target.value);
   }
 
+  function handleIsChatClosed() {
+    setIsChatClosed(!isChatClosed);
+  }
+
   return (
-    <Container>
+    <Container isChatClosed={isChatClosed}>
       <ChatHeader>
-        <MdKeyboardArrowRight size={20} />
+        <ClickableIcon isChatClosed={isChatClosed}>
+          <MdKeyboardArrowRight size={20} onClick={handleIsChatClosed} />
+        </ClickableIcon>
         <div>STREAM CHAT</div>
-        <MdPersonOutline size={20} />
+        <ClickableIcon>
+          <MdPersonOutline size={20} />
+        </ClickableIcon>
       </ChatHeader>
       <ChatDiv>{chat}</ChatDiv>
-      <form onSubmit={handleSubmit}>
-        <ChatInput>
-          <input
-            autoComplete="off"
-            name="message"
-            placeholder="Send a message"
-            onChange={handleChange}
-            value={message}
-          />
-        </ChatInput>
-        <ChatFooter>
-          <div />
-          <button type="submit" onSubmit={handleSubmit}>
-            Chat
-          </button>
-        </ChatFooter>
-      </form>
+      <ChatForm>
+        <form onSubmit={handleSubmit}>
+          <ChatInput isFocused={isFocused}>
+            <input
+              autoComplete="off"
+              name="message"
+              placeholder="Send a message"
+              onChange={handleChange}
+              value={message}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+            />
+            <ClickableIcon>
+              <MdTagFaces size={24} />
+            </ClickableIcon>
+          </ChatInput>
+          <ChatFooter>
+            <ClickableIcon>
+              <MdTimelapse size={20} />
+              <span>20k</span>
+            </ClickableIcon>
+            <button type="submit" onSubmit={handleSubmit}>
+              Chat
+            </button>
+          </ChatFooter>
+        </form>
+      </ChatForm>
     </Container>
   );
 }

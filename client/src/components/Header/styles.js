@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #222;
+  background: #18181b;
   color: #fff;
 
   img {

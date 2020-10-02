@@ -1,7 +1,23 @@
 import React from 'react';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
 
-import { Container } from './styles';
+import { useChat } from '../../context/chat';
+
+import { Container, Stream, ExpandIcon } from './styles';
 
 export default function Center() {
-  return <Container />;
+  const { isChatClosed, setIsChatClosed } = useChat();
+
+  function handleIsChatClosed() {
+    // Change here
+    setIsChatClosed(false);
+  }
+  return (
+    <Container>
+      <Stream>Olar</Stream>
+      <ExpandIcon isChatClosed={isChatClosed}>
+        <MdKeyboardArrowLeft size={20} onClick={handleIsChatClosed} />
+      </ExpandIcon>
+    </Container>
+  );
 }
