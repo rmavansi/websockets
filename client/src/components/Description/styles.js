@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -45,6 +45,11 @@ export const DescriptionWrapper = styled.div`
     margin-bottom: 4px;
   }
 
+  div {
+    display: flex;
+    align-items: center;
+  }
+
   > div {
     margin-top: 6px;
     span {
@@ -59,11 +64,6 @@ export const DescriptionWrapper = styled.div`
     :hover {
       text-decoration: underline;
     }
-  }
-
-  div {
-    display: flex;
-    align-items: center;
   }
 `;
 
@@ -85,16 +85,12 @@ export const Stats = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
   div {
     display: flex;
     align-items: center;
-    div {
-      margin-right: 10px;
-      display: flex;
-      align-items: center;
-      color: #b90000;
-    }
   }
+
   svg {
     margin-right: 8px;
     padding: 8px;
@@ -113,7 +109,6 @@ export const ChannelInteractions = styled.div`
 
   button {
     height: 30px;
-    /* margin: 0; */
     border-radius: 4px;
     border: none;
     padding: 0 8px;
@@ -124,16 +119,30 @@ export const ChannelInteractions = styled.div`
       background-color: #9d7eed;
     }
   }
+
+  ${props =>
+    props.active &&
+    css`
+      svg {
+        color: red;
+        padding: 3px;
+      }
+    `}
 `;
 
 export const BottomInteractions = styled.div`
-  /* display: flex;
-  align-items: center; */
   span {
     margin-right: 8px;
   }
 
-  > div {
+  div {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    color: #b90000;
+  }
+
+  div {
     svg {
       padding: 0;
       :hover {
@@ -148,6 +157,14 @@ export const BottomInteractions = styled.div`
     margin-right: 0;
     :hover {
       background-color: #333333;
+    }
+  }
+`;
+
+export const FollowIcon = styled.div`
+  :hover {
+    svg {
+      background-color: #b90000;
     }
   }
 `;

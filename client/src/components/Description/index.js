@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { FaHeart, FaRegBell } from 'react-icons/fa';
+import { FaHeart, FaRegBell, FaHeartBroken, FaBell } from 'react-icons/fa';
 import { MdPersonOutline } from 'react-icons/md';
 import { HiDotsVertical } from 'react-icons/hi';
 import { FiShare } from 'react-icons/fi';
@@ -15,9 +15,13 @@ import {
   Stats,
   ChannelInteractions,
   BottomInteractions,
+  FollowIcon,
 } from './styles';
 
 function Description() {
+  const [activeHeart, setActiveHeart] = useState(false);
+  const [activeBell, setActiveBell] = useState(false);
+
   return (
     <Container>
       <Profile>
@@ -41,8 +45,36 @@ function Description() {
       </Profile>
       <Stats>
         <ChannelInteractions>
-          <FaHeart size={30} />
-          <FaRegBell size={30} />
+          {activeHeart ? (
+            <FollowIcon
+              active={activeHeart}
+              onMouseLeave={() => setActiveHeart(false)}
+            >
+              <FaHeartBroken size={30} />
+            </FollowIcon>
+          ) : (
+            <FollowIcon
+              active={activeHeart}
+              onMouseOver={() => setActiveHeart(true)}
+              onFocus
+            >
+              <FaHeart size={30} />
+            </FollowIcon>
+          )}
+
+          {activeBell ? (
+            <div active={activeBell} onMouseLeave={() => setActiveBell(false)}>
+              <FaBell size={30} />
+            </div>
+          ) : (
+            <div
+              active={activeBell}
+              onMouseOver={() => setActiveBell(true)}
+              onFocus
+            >
+              <FaRegBell size={30} />
+            </div>
+          )}
           <button type="button">Subscribe</button>
         </ChannelInteractions>
         <BottomInteractions>
