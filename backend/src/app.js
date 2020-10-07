@@ -1,22 +1,13 @@
-import 'dotenv/config';
 import express from 'express';
 import Youch from 'youch';
-import * as Sentry from '@sentry/node';
 import 'express-async-errors';
 import cors from 'cors';
 import socketIo from 'socket.io';
 import http from 'http';
-import routes from './routes';
-import sentryConfig from './config/sentry';
-
-import './database';
-
-import index from './routes/index';
 
 const port = process.env.PORT || 4001;
 
 const app = express();
-app.use(index);
 const server = http.createServer(app);
 const io = socketIo(server);
 
@@ -43,23 +34,12 @@ io.on('connection', socket => {
 class App {
   constructor() {
     this.server = express();
-
-    Sentry.init(sentryConfig);
-
-    this.middlewares();
-    this.routes();
     this.exceptionHandler();
   }
 
   middlewares() {
-    this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(cors());
     this.server.use(express.json());
-  }
-
-  routes() {
-    this.server.use(routes);
-    this.server.use(Sentry.Handlers.errorHandler());
   }
 
   exceptionHandler() {
