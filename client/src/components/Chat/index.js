@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import socketIOClient from 'socket.io-client';
+
 import {
   MdKeyboardArrowRight,
   MdPersonOutline,
@@ -8,8 +9,6 @@ import {
 } from 'react-icons/md';
 
 import { useChat } from '../../context/chat';
-
-import Input from '../Input';
 
 import {
   Container,
@@ -22,32 +21,35 @@ import {
 } from './styles';
 
 export default function Chat() {
-  const [response, setResponse] = useState(false);
   const [message, setMessage] = useState('');
-  const [chat, setChat] = useState('');
-  const [endpoint, setEndpoint] = useState('http://127.0.0.1:4001');
-  const [socket, setSocket] = useState(socketIOClient(endpoint));
+  const [name, setName] = useState('');
+  const [chat, setChat] = useState([]);
+  const [endpoint] = useState('http://127.0.0.1:4001');
+  const [socket] = useState(socketIOClient(endpoint));
   const [isFocused, setIsFocused] = useState(false);
+  const [isNameFocused, setIsNameFocused] = useState(false);
   const { isChatClosed, setIsChatClosed } = useChat();
 
   useEffect(() => {
-    socket.on('FromAPI', data => setResponse(data));
-    socket.on('returnMessage', data =>
-      setChat(data.map(mes => ` ${mes.id}: ${mes.message}\n `))
-    );
-    socket.on('oldMessages', data =>
-      setChat(data.map(mes => ` ${mes.id}: ${mes.message} `))
-    );
+    socket.on('returnMessage', data => setChat(data.map(mes => mes)));
+    socket.on('oldMessages', data => setChat(data.map(mes => mes)));
   }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
-    socket.emit('sendMessage', event.target.message.value);
+    socket.emit('sendMessage', {
+      message: event.target.message.value,
+      name: event.target.name.value,
+    });
     setMessage('');
   }
 
   function handleChange(e) {
     setMessage(e.target.value);
+  }
+
+  function handleNameChange(e) {
+    setName(e.target.value);
   }
 
   function handleIsChatClosed() {
@@ -65,9 +67,27 @@ export default function Chat() {
           <MdPersonOutline size={20} />
         </ClickableIcon>
       </ChatHeader>
-      <ChatDiv>{chat}</ChatDiv>
+      <ChatDiv>
+        {chat.map(mess => (
+          <p>
+            <strong>{`${mess.name}: `}</strong>
+            {mess.message}
+          </p>
+        ))}
+      </ChatDiv>
       <ChatForm>
         <form onSubmit={handleSubmit}>
+          <ChatInput isFocused={isNameFocused}>
+            <input
+              autoComplete="off"
+              name="name"
+              placeholder="Name"
+              onChange={handleNameChange}
+              value={name}
+              onFocus={() => setIsNameFocused(true)}
+              onBlur={() => setIsNameFocused(false)}
+            />
+          </ChatInput>
           <ChatInput isFocused={isFocused}>
             <input
               autoComplete="off"

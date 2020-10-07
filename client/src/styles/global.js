@@ -37,4 +37,9 @@ export default createGlobalStyle`
    button {
      cursor: pointer;
    }
+
+   body {
+
+  overflow: hidden;
+   }
 `;

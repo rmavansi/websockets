@@ -34,7 +34,7 @@ io.on('connection', socket => {
   });
 
   socket.on('sendMessage', data => {
-    chat.push({ id: socket.id, message: data });
+    chat.push({ name: data.name, message: data.message });
     socket.broadcast.emit('returnMessage', chat);
     socket.emit('returnMessage', chat);
   });

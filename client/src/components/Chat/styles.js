@@ -39,13 +39,48 @@ export const ClickableIcon = styled.div`
 
 export const ChatDiv = styled.div`
   height: 1800px;
-  padding: 5px 16px;
-  line-height: 32px;
+  padding: 5px 10px;
+  line-height: 30px;
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    display: none;
+  }
+
+  :hover {
+    ::-webkit-scrollbar {
+      display: initial;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #222;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+  }
+
+  p {
+    padding: 0 8px;
+    border-radius: 4px;
+    :hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  strong {
+    color: #f807e6;
+  }
 `;
 
 export const ChatForm = styled.div`
   margin-bottom: 8px;
-  padding: 0 15px;
+  padding: 0 9px;
 `;
 
 export const ChatInput = styled.div`
@@ -53,10 +88,13 @@ export const ChatInput = styled.div`
   align-items: center;
   width: 100%;
   height: 44px;
-  border: 2px solid #333;
+  border: 2px solid transparent;
   border-radius: 6px;
   background-color: #444;
   transition: 0.3s;
+  & + div {
+    margin-top: 5px;
+  }
 
   ${props =>
     props.isFocused &&

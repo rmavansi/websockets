@@ -28,6 +28,24 @@ export const Container = styled.div`
     `}
 `;
 
+export const ScrollWrapper = styled.div`
+  overflow: auto;
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #222;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+  }
+`;
+
 export const ClickableIcon = styled.div`
   display: flex;
   align-items: center;
@@ -133,7 +151,7 @@ export const ShowMore = styled.div`
 export const Image = styled.div`
   width: 28px;
   height: 28px;
-  background: #772ce8;
+  background: ${props => props.color};
   border-radius: 50%;
 `;
 
@@ -144,29 +162,12 @@ export const Footer = styled.div`
 export const Search = styled.div`
   display: flex;
   align-items: center;
-  height: 36px;
-  border: 2px solid #1d1d1d;
+  height: 31px;
   border-radius: 6px;
-  background-color: #444;
-  margin: 8px 9px 12px;
-
-  ${props =>
-    props.isFocused &&
-    css`
-      background-color: #000000;
-      border: 2px solid #5507ab;
-    `}
+  margin: 10px 9px;
 
   input {
-    background-color: transparent;
-    border: none;
-    width: 100%;
-    height: 100%;
     padding-left: 6px;
-    color: #fff;
-    ::placeholder {
-      color: #ccc;
-    }
   }
 
   svg {

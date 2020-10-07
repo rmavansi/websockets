@@ -1,0 +1,77 @@
+[33mcommit ceb3fe81faee1f8bbc2831ac7cd7114843e0bf4c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Renan Marques <rmavansi@gmail.com>
+Date:   Mon Oct 5 23:03:15 2020 -0300
+
+    styled: bottom bar
+
+[33mcommit 5660e30c1c993a6285d45e1cba7670c9498b0dc8[m
+Author: Renan Marques <rmavansi@gmail.com>
+Date:   Sat Oct 3 18:32:27 2020 -0300
+
+    feature: bottom bar added
+
+[33mcommit c60621a45c7353d3055ffc41bdb49beb9c93c880[m
+Author: Renan Marques <rmavansi@gmail.com>
+Date:   Fri Oct 2 19:39:54 2020 -0300
+
+    styled: header
+
+[33mcommit e795f876bdbdcdfa76ae383c7df39a81787fe465[m
+Author: Renan Marques <rmavansi@gmail.com>
+Date:   Fri Oct 2 16:23:51 2020 -0300
+
+    style: online bar
+
+[33mcommit 87c815d694e4d57f506af16fd1a510658ade34bc[m
+Author: Renan Marques <rmavansi@gmail.com>
+Date:   Fri Oct 2 02:42:40 2020 -0300
+
+    feature: side bars styled
+
+[33mcommit 45c97f4845253923d77978d133abb47489996a97[m
+Author: Renan <rmavansi@gmail.com>
+Date:   Wed Jun 24 18:08:35 2020 -0300
+
+    feature: user database
+
+[33mcommit f3d059b29c40bf77372a1d7a7cc4e09effbf08bd[m
+Author: Renan <rmavansi@gmail.com>
+Date:   Tue Feb 18 00:41:40 2020 -0300
+
+    bufix: button and chat style
+
+[33mcommit 15e17a471de16c0bdb8b75be1668358d81bc0cbe[m
+Author: Renan <rmavansi@gmail.com>
+Date:   Mon Feb 17 23:48:39 2020 -0300
+
+    feature: websocket added
+
+[33mcommit 7e3e7b5061b677885423e78e7e871a685b059484[m
+Author: Renan <rmavansi@gmail.com>
+Date:   Fri Feb 14 22:36:09 2020 -0300
+
+    feature: chat styled
+
+[33mcommit 463a2d0f768d989a2bba0269d231c48c074238d1[m
+Author: Renan <rmavansi@gmail.com>
+Date:   Wed Feb 12 20:36:47 2020 -0300
+
+    feature: header styled
+
+[33mcommit 57792b42205524d1589ae268c73f69d4b8dbde84[m
+Author: Renan <rmavansi@gmail.com>
+Date:   Mon Feb 10 21:50:34 2020 -0300
+
+    feature: online bar styled
+
+[33mcommit d5be5d08c60daa86879b9da89e82442ed9eec31a[m
+Author: Renan <rmavansi@gmail.com>
+Date:   Wed Feb 5 22:35:15 2020 -0300
+
+    feature: draft layout added
+
+[33mcommit 1e33ff28bdf34be9a6b6e8787ca809c925ba2dce[m
+Author: Renan <rmavansi@gmail.com>
+Date:   Tue Jan 7 22:29:40 2020 -0300
+
+    initial commit

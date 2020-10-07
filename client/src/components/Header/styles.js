@@ -65,7 +65,8 @@ export const Search = styled.div`
   display: flex;
   width: 381px;
 
-  input {
+  div {
+    border-radius: 6px 0 0 6px;
     height: 36px;
   }
 
@@ -95,7 +96,7 @@ export const Search = styled.div`
   }
 
   @media only screen and (max-width: 770px) {
-    input,
+    div,
     button {
       display: none;
     }
