@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import socketIOClient from 'socket.io-client';
-
+// import socketIOClient from 'socket.io-client';
 import {
   MdKeyboardArrowRight,
   MdPersonOutline,
@@ -8,6 +7,7 @@ import {
   MdTagFaces,
 } from 'react-icons/md';
 
+import socket from '../../services/socket';
 import { useChat } from '../../context/chat';
 
 import {
@@ -24,8 +24,8 @@ export default function Chat() {
   const [message, setMessage] = useState('');
   const [name, setName] = useState('');
   const [chat, setChat] = useState([]);
-  const [endpoint] = useState('http://127.0.0.1:4001');
-  const [socket] = useState(socketIOClient(endpoint));
+  // const [endpoint] = useState('http://127.0.0.1:4001');
+  // const [socket] = useState(socketIOClient(endpoint));
   const [isFocused, setIsFocused] = useState(false);
   const [isNameFocused, setIsNameFocused] = useState(false);
   const { isChatClosed, setIsChatClosed } = useChat();
