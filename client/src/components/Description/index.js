@@ -30,6 +30,7 @@ function Description() {
             alt="Profile"
             src="https://static-cdn.jtvnw.net/jtv_user_pictures/f3591dbe4ee3d94b-profile_image-70x70.png"
           />
+          <span>LIVE</span>
         </Photo>
         <DescriptionWrapper>
           <p>Draven</p>

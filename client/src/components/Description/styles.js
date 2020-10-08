@@ -35,6 +35,17 @@ export const Photo = styled.div`
     border-radius: 50%;
     border: 2px solid #000000;
   }
+
+  span {
+    position: absolute;
+    transform: translateY(30px);
+    padding: 1px 4px;
+    color: #eeeeee;
+    background: #ff0000;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    font-weight: bold;
+  }
 `;
 
 export const DescriptionWrapper = styled.div`
