@@ -5,6 +5,8 @@ import cors from 'cors';
 import socketIo from 'socket.io';
 import http from 'http';
 
+import commands from './Utils/commands';
+
 const port = process.env.PORT || 4001;
 
 const app = express();
@@ -26,6 +28,9 @@ io.on('connection', socket => {
 
   socket.on('sendMessage', data => {
     chat.push({ name: data.name, message: data.message });
+
+    commands(data.message, chat);
+
     socket.broadcast.emit('returnMessage', chat);
     socket.emit('returnMessage', chat);
   });
