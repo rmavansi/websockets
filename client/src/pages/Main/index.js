@@ -1,13 +1,13 @@
 import React from 'react';
 
+import ChatProvider from '../../context/chat';
+import Chat from '../../components/Chat';
+import Center from '../../components/Center';
+import Online from '../../components/Online';
+
 import { Container } from './styles';
 
-import ChatProvider from '../../context/chat';
-import Chat from '../Chat';
-import Center from '../Center';
-import Online from '../Online';
-
-export default function Group() {
+function Main() {
   return (
     <Container>
       <Online />
@@ -18,3 +18,5 @@ export default function Group() {
     </Container>
   );
 }
+
+export default Main;
