@@ -24,8 +24,6 @@ export default function Chat() {
   const [message, setMessage] = useState('');
   const [name, setName] = useState('');
   const [chat, setChat] = useState([]);
-  // const [endpoint] = useState('http://127.0.0.1:4001');
-  // const [socket] = useState(socketIOClient(endpoint));
   const [isFocused, setIsFocused] = useState(false);
   const [isNameFocused, setIsNameFocused] = useState(false);
   const { isChatClosed, setIsChatClosed } = useChat();
