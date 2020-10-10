@@ -1,4 +1,17 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const NotificationVariations = {
+  crown: css`
+    transform: translate(25px, -12px);
+  `,
+  box: css`
+    background-color: #d9ffd9;
+    color: #01b80b;
+  `,
+  whispers: css`
+    transform: translate(105px, -12px);
+  `,
+};
 
 export const Container = styled.div`
   width: 100%;
@@ -165,4 +178,16 @@ export const BitsMedia = styled.div`
   @media only screen and (max-width: 1200px) {
     display: flex;
   }
+`;
+
+export const Notification = styled.span`
+  position: absolute;
+  ${props => NotificationVariations[props.above || null]};
+  background-color: #ff0000;
+  padding: 1px 6px 1px 5px;
+  border: 2px solid #000000;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: -1.5px;
 `;

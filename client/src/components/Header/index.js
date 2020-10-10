@@ -15,6 +15,7 @@ import {
   Image,
   SearchMedia,
   BitsMedia,
+  Notification,
 } from './styles';
 
 export default function Header() {
@@ -48,8 +49,10 @@ export default function Header() {
           <MdSearch size={30} />
         </SearchMedia>
         <CgCrown size={30} />
+        <Notification above="crown">2</Notification>
         <FiInbox size={30} />
         <BsChatSquare size={30} />
+        <Notification above="whispers">10</Notification>
         <button type="button">
           <GiDiamonds size={20} />
           Get Bits
