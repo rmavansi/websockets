@@ -3,6 +3,12 @@ import { MdNavigateBefore, MdNavigateNext, MdSearch } from 'react-icons/md';
 import { FiHeart, FiKey, FiUserPlus } from 'react-icons/fi';
 
 import Input from '../Input';
+import Camille from '../../assets/Profile/Camille.jpg';
+import DrMundo from '../../assets/Profile/DrMundo.jpg';
+import Ezreal from '../../assets/Profile/Ezreal.jpg';
+import Zac from '../../assets/Profile/Zac.jpg';
+import Draven from '../../assets/Profile/Draven.png';
+import Vladmir from '../../assets/Profile/Vladmir.png';
 
 import {
   Container,
@@ -38,51 +44,44 @@ export default function Online() {
 
   const streams = [
     {
-      photo:
-        'https://static-cdn.jtvnw.net/jtv_user_pictures/f3591dbe4ee3d94b-profile_image-70x70.png',
+      photo: Draven,
       name: 'Draven',
       game: 'League of Draven',
       online: '550.4K',
     },
     {
-      photo:
-        'https://static-cdn.jtvnw.net/jtv_user_pictures/faffcdce-19b9-4736-abdf-a16c765a1b60-profile_image-70x70.png',
+      photo: Vladmir,
       name: 'Vladmir',
       game: 'Genshin Impact',
       online: '4.1K',
     },
     {
-      photo:
-        'https://static-cdn.jtvnw.net/jtv_user_pictures/cbb3a71c-6481-4a14-91d5-0c34dea01c02-profile_image-70x70.png',
+      photo: Ezreal,
       name: 'Ezreal',
       game: 'Teamfight Tactics',
       online: '1.4K',
     },
     {
-      photo:
-        'https://static-cdn.jtvnw.net/jtv_user_pictures/5517a5b0-8660-43bf-93a7-3bfaaf523113-profile_image-70x70.png',
+      photo: Zac,
       name: 'Zac',
       game: 'League of Legends',
       online: '1.2K',
     },
     {
-      photo:
-        'https://static-cdn.jtvnw.net/jtv_user_pictures/5517a5b0-8660-43bf-93a7-3bfaaf523113-profile_image-70x70.png',
+      photo: DrMundo,
       name: 'Dr. Mundo',
       game: 'League of Legends',
       online: '1.2K',
     },
     {
-      photo:
-        'https://static-cdn.jtvnw.net/jtv_user_pictures/5517a5b0-8660-43bf-93a7-3bfaaf523113-profile_image-70x70.png',
+      photo: Camille,
       name: 'boxbox',
       game: 'League of Legends',
       online: '1.2K',
     },
     {
-      photo:
-        'https://static-cdn.jtvnw.net/jtv_user_pictures/5517a5b0-8660-43bf-93a7-3bfaaf523113-profile_image-70x70.png',
-      name: 'Singed',
+      photo: Camille,
+      name: 'Camille',
       game: 'League of Legends',
       online: '1.2K',
     },
