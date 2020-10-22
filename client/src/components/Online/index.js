@@ -125,7 +125,7 @@ export default function Online() {
             </FollowedIcon>
 
             {streams.map(stream => (
-              <Channel isClosed={isClosed}>
+              <Channel key={stream.name} isClosed={isClosed}>
                 <img alt="Profile" src={stream.photo} height={28} />
               </Channel>
             ))}
@@ -134,12 +134,12 @@ export default function Online() {
               <FiKey size={20} />
             </RecommendedIcon>
             {streams.map(stream => (
-              <Channel isClosed={isClosed}>
+              <Channel key={stream.name} isClosed={isClosed}>
                 <img alt="Profile" src={stream.photo} height={28} />
               </Channel>
             ))}
             {streams.map(stream => (
-              <Channel isClosed={isClosed}>
+              <Channel key={stream.name} isClosed={isClosed}>
                 <img alt="Profile" src={stream.photo} height={28} />
               </Channel>
             ))}
@@ -161,7 +161,7 @@ export default function Online() {
             </FollowedChannelsBlockHeader>
 
             {streams.map(stream => (
-              <Channel>
+              <Channel key={stream.name}>
                 <ImageNameGameDiv>
                   <img alt="Profile" src={stream.photo} height={28} />
                   <NameGameDiv>
@@ -184,7 +184,7 @@ export default function Online() {
             </FollowedChannelsBlockHeader>
 
             {recommendedStreams.map(recommendedStream => (
-              <Channel>
+              <Channel key={recommendedStream.name}>
                 <ImageNameGameDiv>
                   <Image color={recommendedStream.photo} />
                   <NameGameDiv>

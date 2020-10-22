@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import socketIOClient from 'socket.io-client';
 import {
   MdKeyboardArrowRight,
   MdPersonOutline,
@@ -66,8 +65,8 @@ export default function Chat() {
         </ClickableIcon>
       </ChatHeader>
       <ChatDiv>
-        {chat.map(mess => (
-          <p>
+        {chat.map((mess, index) => (
+          <p key={index}>
             <strong>{`${mess.name}: `}</strong>
             {mess.message}
           </p>

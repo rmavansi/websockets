@@ -48,30 +48,33 @@ function Description() {
         <ChannelInteractions>
           {activeHeart ? (
             <FollowIcon
-              active={activeHeart}
+              active={activeHeart ? 1 : 0}
               onMouseLeave={() => setActiveHeart(false)}
             >
               <FaHeartBroken size={30} />
             </FollowIcon>
           ) : (
             <FollowIcon
-              active={activeHeart}
+              active={activeHeart ? 1 : 0}
               onMouseOver={() => setActiveHeart(true)}
-              onFocus
+              onFocus={() => {}}
             >
               <FaHeart size={30} />
             </FollowIcon>
           )}
 
           {activeBell ? (
-            <div active={activeBell} onMouseLeave={() => setActiveBell(false)}>
+            <div
+              active={activeBell ? 1 : 0}
+              onMouseLeave={() => setActiveBell(false)}
+            >
               <FaBell size={30} />
             </div>
           ) : (
             <div
-              active={activeBell}
+              active={activeBell ? 1 : 0}
               onMouseOver={() => setActiveBell(true)}
-              onFocus
+              onFocus={() => {}}
             >
               <FaRegBell size={30} />
             </div>
